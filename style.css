@@ -1,18 +1,184 @@
-/* Adicione esta seção ao seu style.css, de preferência após a seção de SEÇÕES GERAIS */
+/* ============================================== */
+/* 0. CSS RESET & VARIÁVEIS GLOBAIS */
+/* ============================================== */
+:root {
+    --primary-color: #007BFF; /* Azul de destaque */
+    --secondary-color: #6C757D; /* Cinza secundário */
+    --accent-color: #FFC107; /* Amarelo para ênfase (opcional) */
 
-/* EXPERIENCE TIMELINE */
+    --text-dark: #212529;
+    --text-light: #F8F9FA;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F8F9FA; /* Cor de fundo para seções claras */
+    --bg-dark: #343A40; /* Cor de fundo para seções escuras */
+
+    --border-radius: 8px;
+    --section-padding: 80px 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* CONTAINER E SEÇÕES GERAIS */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: var(--section-padding);
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.bg-dark h2, .bg-dark p {
+    color: var(--text-light);
+}
+
+.flow > * + * {
+    margin-top: 1em; /* Espaçamento entre parágrafos e elementos */
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ============================================== */
+/* 1. BOTÕES (BUTTONS) */
+/* ============================================== */
+.button {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.button.primary:hover {
+    background-color: #0056b3; /* Tom mais escuro */
+}
+
+.button.secondary {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.button.primary-alt {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    border-color: var(--accent-color);
+}
+
+.button.primary-alt:hover {
+    background-color: #d8a000;
+}
+
+/* ============================================== */
+/* 2. HERO SECTION */
+/* ============================================== */
+.hero-section {
+    padding: 120px 20px;
+    text-align: center;
+    background: var(--bg-light);
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.role-tag {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-links a {
+    margin: 0 10px;
+}
+
+/* ============================================== */
+/* 3. EXPERIENCE TIMELINE */
+/* ============================================== */
 .job-timeline {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .job-card {
-    background: var(--bg-light);
+    background: var(--bg-white); /* Alterado de var(--bg-light) para var(--bg-white) para contraste na seção bg-light */
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid var(--primary-color); /* Linha de destaque */
+    border-left: 5px solid var(--primary-color); 
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
@@ -32,6 +198,7 @@
 .job-card h3 {
     margin: 0;
     color: var(--primary-color);
+    font-size: 1.4rem;
 }
 
 .job-period {
@@ -51,31 +218,195 @@
 
 .job-responsibilities {
     list-style: none;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .job-responsibilities li {
     position: relative;
     margin-bottom: 10px;
     font-size: 0.95rem;
+    padding-left: 1.5em; /* Espaço para o bullet */
 }
 
 .job-responsibilities li::before {
     content: "•";
     color: var(--primary-color);
     font-weight: 700;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    position: absolute;
+    left: 0;
 }
 
-/* Ajuste para telas menores */
-@media (max-width: 600px) {
+/* ============================================== */
+/* 4. SKILLS / EXPERTISE (GRID FIX) */
+/* ============================================== */
+.skills-grid {
+    display: grid;
+    /* 3 colunas, mínimo de 300px por coluna, espaçamento de 30px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: var(--bg-white); 
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-top: 3px solid var(--primary-color);
+}
+
+.skill-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.skill-card ul {
+    padding-left: 20px;
+    list-style-type: square;
+    color: var(--text-dark);
+}
+
+.skill-card li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* ============================================== */
+/* 5. WORK HIGHLIGHTS & RESEARCH (LIST FIX) */
+/* ============================================== */
+.project-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--bg-white); /* Alterado para contraste */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.project-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.tag {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-card p {
+    margin-bottom: 15px;
+}
+
+.project-link {
+    font-weight: 600;
+}
+
+/* ============================================== */
+/* 6. CONTACT SECTION (GRID FIX) */
+/* ============================================== */
+.contact-grid {
+    text-align: center;
+    max-width: 700px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    border-color: var(--text-light) !important;
+}
+
+.bg-dark .contact-btn.secondary {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border-color: var(--text-light);
+}
+
+.bg-dark .contact-btn.secondary:hover {
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+}
+
+.bg-dark .contact-btn.primary-alt {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+}
+
+
+/* ============================================== */
+/* 7. FOOTER */
+/* ============================================== */
+footer {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #E2E8F0;
+    background-color: var(--bg-white);
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+/* ============================================== */
+/* 8. MEDIA QUERIES (RESPONSIVIDADE) */
+/* ============================================== */
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    /* Experiência - Stacked Header */
     .job-header {
         flex-direction: column;
         align-items: flex-start;
     }
     .job-period {
         margin-top: 5px;
+    }
+
+    /* Skills - Grid de 1 ou 2 colunas */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    /* Contato */
+    .contact-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button {
+        width: 100%;
     }
 }
