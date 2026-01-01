@@ -1,5 +1,4 @@
-*.pdf
-
+# Ignore node modules and log files
 /node_modules
 *.log
 .DS_Store
