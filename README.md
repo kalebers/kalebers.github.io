@@ -16,7 +16,7 @@ My experience includes:
 | :--- | :--- |
 | **Cybersecurity** | Intrusion Detection (ML), Network Threat Detection (NIDS), Secure Coding (Python, C#, Java), Threat Analysis & Mitigation. |
 | **Data Science & ML** | Python (Tensorflow), Machine Learning Model Development, Splunk & Data Visualization, Statistics, High-dimensional Data. |
-| **Software Engineering** | Python, C++, C#, Java, CI/CD Automation & Testing (JUnit, Unittest), Cloud Platforms (GCP, AWS), GIT/GitHub. |
+| **Software Engineering** | Python, Java, C#, C++, CI/CD Automation & Testing (JUnit, Unittest), Cloud Platforms (GCP, AWS), GIT/GitHub. |
 
 
 ## Let's Connect
