@@ -11,11 +11,28 @@
     --text-light: #F8F9FA;
 
     --bg-white: #FFFFFF;
-    --bg-light: #F8F9FA; /* Cor de fundo para seções claras */
-    --bg-dark: #343A40; /* Cor de fundo para seções escuras */
+    --bg-light: #F8F9FA;
+    --bg-dark: #343A40;
 
     --border-radius: 8px;
     --section-padding: 80px 0;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* DARK MODE */
+html.dark-mode {
+    --primary-color: #5EB3FF;
+    --secondary-color: #B0B0B0;
+    --accent-color: #FFD700;
+
+    --text-dark: #FFFFFF;
+    --text-light: #121212;
+
+    --bg-white: #1A1A1A;
+    --bg-light: #242424;
+    --bg-dark: #0a0a0a;
+
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 /* DARK MODE */
@@ -44,17 +61,20 @@ body {
     color: var(--text-dark);
     background-color: var(--bg-white);
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
     font-weight: 700;
     line-height: 1.2;
     color: var(--text-dark);
+    transition: color 0.3s ease;
 }
 
 a {
     text-decoration: none;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 ul {
@@ -71,6 +91,7 @@ ul {
 
 .section {
     padding: var(--section-padding);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .bg-light {
@@ -80,10 +101,12 @@ ul {
 .bg-dark {
     background-color: var(--bg-dark);
     color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .bg-dark h2, .bg-dark p {
     color: var(--text-light);
+    transition: color 0.3s ease;
 }
 
 .flow > * + * {
@@ -104,7 +127,7 @@ h2 {
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 600;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
     border: 2px solid transparent;
     text-align: center;
 }
@@ -122,6 +145,10 @@ h2 {
     background-color: #0056b3; /* Tom mais escuro */
 }
 
+html.dark-mode .button.primary:hover {
+    background-color: #3A8FD6;
+}
+
 .button.secondary {
     background-color: var(--bg-white);
     color: var(--primary-color);
@@ -131,6 +158,16 @@ h2 {
 .button.secondary:hover {
     background-color: var(--primary-color);
     color: var(--bg-white);
+}
+
+html.dark-mode .button.secondary {
+    background-color: var(--bg-dark);
+    border-color: var(--primary-color);
+}
+
+html.dark-mode .button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
 }
 
 .button.primary-alt {
@@ -150,6 +187,7 @@ h2 {
     padding: 120px 20px;
     text-align: center;
     background: var(--bg-light);
+    transition: background-color 0.3s ease;
 }
 
 .hero-section h1 {
@@ -164,6 +202,7 @@ h2 {
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
 }
 
 .tagline {
@@ -171,6 +210,7 @@ h2 {
     color: var(--secondary-color);
     max-width: 700px;
     margin: 0 auto 30px;
+    transition: color 0.3s ease;
 }
 
 .cta-links a {
@@ -194,7 +234,7 @@ h2 {
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-left: 5px solid var(--primary-color); 
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s, background-color 0.3s ease, color 0.3s ease;
 }
 
 .job-card:hover {
@@ -214,12 +254,17 @@ h2 {
     margin: 0;
     color: var(--primary-color);
     font-size: 1.4rem;
+    transition: color 0.3s ease;
 }
 
 .job-period {
     font-size: 0.9rem;
     color: #64748B;
     font-weight: 400;
+}
+
+html.dark-mode .job-period {
+    color: #A0A0A0;
 }
 
 .company-name {
@@ -229,6 +274,11 @@ h2 {
     font-style: italic;
     border-bottom: 1px dashed #E2E8F0;
     padding-bottom: 5px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+html.dark-mode .company-name {
+    border-bottom: 1px dashed #444444;
 }
 
 .job-responsibilities {
@@ -268,18 +318,21 @@ h2 {
     border-radius: var(--border-radius);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border-top: 3px solid var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-card h3 {
     font-size: 1.25rem;
     margin-bottom: 15px;
     color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 .skill-card ul {
     padding-left: 20px;
     list-style-type: square;
     color: var(--text-dark);
+    transition: color 0.3s ease;
 }
 
 .skill-card li {
@@ -303,6 +356,7 @@ h2 {
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-header {
@@ -316,6 +370,8 @@ h2 {
 .project-card h3 {
     margin: 0;
     font-size: 1.4rem;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
 }
 
 .tag {
@@ -325,14 +381,19 @@ h2 {
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .project-card p {
     margin-bottom: 15px;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
 }
 
 .project-link {
     font-weight: 600;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
 }
 
 /* ============================================== */
@@ -353,22 +414,30 @@ h2 {
 
 .contact-btn {
     border-color: var(--text-light) !important;
+    transition: all 0.3s ease;
 }
 
-.bg-dark .contact-btn.secondary {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    border-color: var(--text-light);
+html.dark-mode .contact-btn.secondary {
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    border-color: var(--text-dark) !important;
 }
 
-.bg-dark .contact-btn.secondary:hover {
-    background-color: var(--text-light);
-    color: var(--bg-dark);
+html.dark-mode .contact-btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    border-color: var(--primary-color) !important;
 }
 
-.bg-dark .contact-btn.primary-alt {
+html.dark-mode .contact-btn.primary-alt {
     background-color: var(--accent-color);
     color: var(--text-dark);
+    border-color: var(--accent-color) !important;
+}
+
+html.dark-mode .contact-btn.primary-alt:hover {
+    background-color: #FFD700;
+    color: #000;
 }
 
 
@@ -382,6 +451,11 @@ footer {
     background-color: var(--bg-white);
     font-size: 0.85rem;
     color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode footer {
+    border-top: 1px solid #333333;
 }
 
 /* ============================================== */
