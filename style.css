@@ -2,6 +2,7 @@
 /* 0. CSS RESET & VARIÁVEIS GLOBAIS */
 /* ============================================== */
 :root {
+    /* LIGHT MODE (padrão) */
     --primary-color: #007BFF; /* Azul de destaque */
     --secondary-color: #6C757D; /* Cinza secundário */
     --accent-color: #FFC107; /* Amarelo para ênfase (opcional) */
@@ -15,6 +16,20 @@
 
     --border-radius: 8px;
     --section-padding: 80px 0;
+}
+
+/* DARK MODE */
+html.dark-mode {
+    --primary-color: #4A9EFF; /* Azul mais claro para dark mode */
+    --secondary-color: #A0A0A0; /* Cinza mais claro */
+    --accent-color: #FFD700; /* Amarelo mais brilhante */
+
+    --text-dark: #E8E8E8;
+    --text-light: #1A1A1A;
+
+    --bg-white: #1E1E1E;
+    --bg-light: #2A2A2A; /* Cor de fundo para seções claras em dark */
+    --bg-dark: #0F0F0F; /* Cor de fundo para seções escuras em dark */
 }
 
 * {
@@ -409,4 +424,111 @@ footer {
     .button {
         width: 100%;
     }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ============================================== */
+/* 9. DARK MODE TOGGLE SWITCH */
+/* ============================================== */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg-light);
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-container.dark-mode {
+    background-color: var(--bg-light);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.theme-label {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 5px;
+}
+
+/* Toggle Switch Style */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 26px;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+    background-color: #4A9EFF;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+/* Tema para os ícones (emojis) */
+.sun-icon,
+.moon-icon {
+    font-size: 1.2rem;
+    transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+    opacity: 1;
+}
+
+.moon-icon {
+    opacity: 0;
+}
+
+html.dark-mode .sun-icon {
+    opacity: 0;
+}
+
+html.dark-mode .moon-icon {
+    opacity: 1;
 }
