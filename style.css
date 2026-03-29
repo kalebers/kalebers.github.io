@@ -95,6 +95,17 @@ ul {
     transition: color 0.3s ease;
 }
 
+/* Dark mode adjustments for better contrast */
+html.dark-mode .bg-dark {
+    background-color: #1A1A1A;
+    color: var(--text-dark);
+}
+
+html.dark-mode .bg-dark h2, 
+html.dark-mode .bg-dark p {
+    color: var(--text-dark);
+}
+
 .flow > * + * {
     margin-top: 1em; /* Espaçamento entre parágrafos e elementos */
 }
@@ -368,6 +379,11 @@ html.dark-mode .company-name {
     font-size: 0.8rem;
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark-mode .tag {
+    background-color: #FFD700;
+    color: #000000;
 }
 
 .project-card p {
