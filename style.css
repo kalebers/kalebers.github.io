@@ -3,9 +3,9 @@
 /* ============================================== */
 :root {
     /* LIGHT MODE (padrão) */
-    --primary-color: #007BFF;
-    --secondary-color: #6C757D;
-    --accent-color: #FFC107;
+    --primary-color: #007BFF; /* Azul de destaque */
+    --secondary-color: #6C757D; /* Cinza secundário */
+    --accent-color: #FFC107; /* Amarelo para ênfase (opcional) */
 
     --text-dark: #212529;
     --text-light: #F8F9FA;
@@ -33,6 +33,20 @@ html.dark-mode {
     --bg-dark: #0a0a0a;
 
     --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* DARK MODE */
+html.dark-mode {
+    --primary-color: #4A9EFF; /* Azul mais claro para dark mode */
+    --secondary-color: #A0A0A0; /* Cinza mais claro */
+    --accent-color: #FFD700; /* Amarelo mais brilhante */
+
+    --text-dark: #E8E8E8;
+    --text-light: #1A1A1A;
+
+    --bg-white: #1E1E1E;
+    --bg-light: #2A2A2A; /* Cor de fundo para seções claras em dark */
+    --bg-dark: #0F0F0F; /* Cor de fundo para seções escuras em dark */
 }
 
 * {
@@ -503,15 +517,15 @@ html.dark-mode footer {
     align-items: center;
     gap: 10px;
     background-color: var(--bg-light);
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
 }
 
-html.dark-mode .theme-toggle-container {
+.theme-toggle-container.dark-mode {
     background-color: var(--bg-light);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .theme-label {
@@ -527,20 +541,15 @@ html.dark-mode .theme-toggle-container {
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 52px;
-    height: 28px;
+    width: 50px;
+    height: 26px;
     cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
 }
 
 .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-    cursor: pointer;
 }
 
 .toggle-slider {
@@ -551,27 +560,24 @@ html.dark-mode .theme-toggle-container {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: background-color 0.4s ease;
-    border-radius: 28px;
-    border: 2px solid #bbb;
+    transition: 0.4s;
+    border-radius: 26px;
 }
 
 .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
-    left: 2px;
-    bottom: 2px;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
     background-color: white;
-    transition: transform 0.4s ease;
+    transition: 0.4s;
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 input:checked + .toggle-slider {
     background-color: #4A9EFF;
-    border-color: #2E7FD8;
 }
 
 input:checked + .toggle-slider:before {
@@ -583,9 +589,6 @@ input:checked + .toggle-slider:before {
 .moon-icon {
     font-size: 1.2rem;
     transition: opacity 0.3s ease;
-    display: inline-block;
-    width: 20px;
-    text-align: center;
 }
 
 .sun-icon {
