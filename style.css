@@ -433,13 +433,13 @@ html.dark-mode .contact-btn.secondary:hover {
 
 html.dark-mode .contact-btn.primary-alt {
     background-color: var(--accent-color);
-    color: var(--text-dark);
+    color: #000000;
     border-color: var(--accent-color) !important;
 }
 
 html.dark-mode .contact-btn.primary-alt:hover {
     background-color: #FFD700;
-    color: #000;
+    color: #000000;
 }
 
 
