@@ -3,7 +3,7 @@
 
 ## About Me
 
-I am a Software Engineer with **5 years of international experience** (Germany, France, Brazil) in software development and Data Science. I am currently focusing on **Cybersecurity**, pursuing a Master's degree, and specializing in applying advanced **Machine Learning techniques (DANs)** to enhance **Network Intrusion Detection Systems (NIDS)**.
+I am a Software Engineer with **5 years of international experience** (Germany, France, Brazil) in software development and Data Science. I am currently focusing on **Cybersecurity** and pursuing a Master's degree. My master's research focuses on applying **Multi-GANs (multiple Generative Adversarial Networks)** to **Network Intrusion Detection Systems (NIDS)** across datasets, aiming to maintain model generalization in **cross-dataset scenarios**.
 
 My experience includes:
 * Developing robust automation tools (Python, C++).
